@@ -1,0 +1,86 @@
+---
+const missions = [
+  {
+    title: "Settlement Support",
+    description: "Helping new immigrants settle in Canada by providing valuable resources and information.",
+    icon: `<svg class="w-12 h-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+    </svg>`
+  },
+  {
+    title: "Digital Literacy",
+    description: "Conducting free computer training classes for newcomers to enhance digital literacy and job readiness.",
+    icon: `<svg class="w-12 h-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </svg>`
+  },
+  {
+    title: "Community Integration",
+    description: "Organizing sports and recreation programs to encourage physical well-being and social integration.",
+    icon: `<svg class="w-12 h-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+    </svg>`
+  },
+  {
+    title: "Language Support",
+    description: "Providing language support and ESL classes to help newcomers improve their communication skills.",
+    icon: `<svg class="w-12 h-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+    </svg>`
+  },
+  {
+    title: "Career Development",
+    description: "Offering employment readiness workshops to assist newcomers with resume building and job search.",
+    icon: `<svg class="w-12 h-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </svg>`
+  }
+];
+---
+<section id="mission" class="py-20 bg-gradient-to-b from-white to-blue-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+      <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
+      <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+      <p class="text-xl text-gray-600">
+        We are committed to empowering newcomers with the tools, knowledge, and support they need to build successful lives in Canada.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-12 gap-6">
+      {missions.map((mission, index) => {
+        const isWide = index === 0 || index === 3;
+        const colSpan = isWide ? "col-span-12 md:col-span-8" : "col-span-12 md:col-span-4";
+        const isOffset = index === 1 || index === 4;
+        const marginClass = isOffset ? "md:mt-12" : "";
+        
+        return (
+          <div class={`${colSpan} ${marginClass}`} data-aos="fade-up" data-aos-delay={index * 100}>
+            <div class="bg-white rounded-xl shadow-lg p-8 h-full transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+              <div class="flex items-center mb-6">
+                <div class="mr-4" set:html={mission.icon} />
+                <h3 class="text-xl font-bold text-gray-900">{mission.title}</h3>
+              </div>
+              <p class="text-gray-600 flex-grow">{mission.description}</p>
+              <div class="mt-6 flex justify-end">
+                <div class="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors">
+                  <span class="text-sm font-medium">Learn more</span>
+                  <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="mt-16 text-center" data-aos="fade-up">
+      <div class="inline-flex items-center p-1 rounded-full bg-blue-100 text-blue-600">
+        <span class="px-4 py-2">Together, we make a difference</span>
+        <span class="w-3 h-3 rounded-full bg-blue-600 ml-2 animate-pulse"></span>
+      </div>
+    </div>
+  </div>
+</section>

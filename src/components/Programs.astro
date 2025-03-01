@@ -1,0 +1,85 @@
+---
+const programs = [
+  {
+    title: "Computer Training for Newcomers",
+    description: "Our free computer training program is designed to help newcomers develop essential digital skills.",
+    features: [
+      "Basic computer operations",
+      "Microsoft Office applications (Word, Excel, PowerPoint)",
+      "Internet navigation and email usage",
+      "Online job search and resume writing"
+    ],
+    icon: "💻"
+  },
+  {
+    title: "Sports and Recreation Program",
+    description: "Stay active and connect with others through our sports and recreation program!",
+    features: [
+      "Community sports leagues",
+      "Fitness and wellness sessions",
+      "Special March Break Camp for kids and youth",
+      "Team building activities"
+    ],
+    icon: "⚽"
+  },
+  {
+    title: "Language Support & ESL Classes",
+    description: "Our English as a Second Language (ESL) classes are tailored for newcomers.",
+    features: [
+      "Improve English communication skills",
+      "Gain confidence in speaking and writing",
+      "Learn essential vocabulary for daily life",
+      "Enhance workplace communication skills"
+    ],
+    icon: "🗣️"
+  },
+  {
+    title: "Employment Readiness Workshops",
+    description: "Our employment support program helps newcomers prepare for the workforce.",
+    features: [
+      "Resume and cover letter writing assistance",
+      "Job interview coaching",
+      "Networking opportunities with local employers",
+      "Career guidance and mentorship"
+    ],
+    icon: "💼"
+  }
+];
+---
+<section id="programs" class="py-12 sm:py-20 relative parallax-bg" 
+         style="background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2070');">
+  <div class="absolute inset-0 bg-white bg-opacity-95"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="text-center" data-aos="fade-up">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Sign Up for Our Programs</h2>
+      <p class="mt-4 text-lg sm:text-xl text-gray-600">Join our community and start your journey to success</p>
+    </div>
+
+    <div class="mt-12 sm:mt-16 grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      {programs.map((program, index) => (
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+             data-aos="fade-up" data-aos-delay={index * 100}>
+          <div class="p-6 sm:p-8">
+            <div class="text-4xl mb-4">{program.icon}</div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{program.title}</h3>
+            <p class="text-gray-600 mb-6">{program.description}</p>
+            <ul class="space-y-3">
+              {program.features.map(feature => (
+                <li class="flex items-start">
+                  <svg class="h-6 w-6 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="ml-2 text-gray-600">{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="#contact" 
+               class="mt-6 sm:mt-8 inline-block w-full text-center bg-blue-600 text-white px-4 sm:px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+              Sign Up Now
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
